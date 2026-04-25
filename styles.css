@@ -514,17 +514,14 @@ a {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 18px;
-  align-items: start;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  max-width: 860px;
+  margin: 0 auto;
 }
 
 .contact-info p + p {
   margin-top: 10px;
-}
-
-.contact-info {
-  height: fit-content;
 }
 
 .contact-form {
