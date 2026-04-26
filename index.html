@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EcoGuard AI | Environmental Intelligence System</title>
+  <meta
+    name="description"
+    content="EcoGuard AI — Environmental Risk and Resource Management AI System. SLIIT CDAP final-year research: integrated IoT and AI monitoring for flood, air quality, heat risk, and coral reef health in Sri Lanka."
+  />
+  <title>EcoGuard AI | Environmental Risk and Resource Management AI System</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -13,292 +17,478 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Header / Navigation -->
   <header class="site-header">
-    <nav class="container nav-bar">
+    <nav class="container nav-bar" aria-label="Primary">
       <a href="#home" class="brand">
-        <img src="assets/ecoguard-logo.png" alt="EcoGuard AI logo" class="brand-logo" />
-        <span>EcoGuard AI</span>
+        <img
+          src="assets/ecoguard-logo.png"
+          width="56"
+          height="56"
+          alt="EcoGuard AI logo"
+          class="brand-logo"
+        />
+        <span class="brand-text"><span class="brand-name">EcoGuard AI</span><span class="brand-sub"> </span></span>
       </a>
-      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#solution">Solution</a></li>
+        <li><a href="#domain">Domain</a></li>
+        <li><a href="#milestones">Milestones</a></li>
         <li><a href="#documents">Documents</a></li>
+        <li><a href="#presentations">Presentations</a></li>
         <li><a href="#about">About Us</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact">Contact Us</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <!-- Home Section -->
-    <section id="home" class="hero section">
+    <!-- Home -->
+    <section id="home" class="hero section hero--home">
       <div class="container hero-grid">
         <div class="hero-content fade-in">
-          <h1>EcoGuard AI</h1>
+          <p class="eyebrow">EcoGuard AI</p>
+          <h1>Environmental Risk and Resource Management AI System</h1>
           <p class="hero-text">
-            AI-Powered Environmental Intelligence for a Sustainable Future
+            An integrated AI and IoT environmental monitoring platform for Sri Lanka, covering flood risk, air quality,
+            heat stress, and coral reef health with real-time dashboards, alerts, and intelligent assistance.
           </p>
-          <a href="#solution" class="btn">Explore System</a>
+          <div class="hero-actions">
+            <a href="#domain" class="btn">Explore Domain</a>
+            <a href="#documents" class="btn btn--outline">View Documents</a>
+          </div>
         </div>
-        <div class="hero-cards fade-in">
+        <div class="hero-cards fade-in" aria-label="System modules">
           <article class="module-card">
-            <div class="icon">🐠</div>
-            <h3>Coral Reef Monitoring</h3>
+            <div class="icon" aria-hidden="true">🌊</div>
+            <h3>Flood Monitoring and Alert System</h3>
           </article>
           <article class="module-card">
-            <div class="icon">🌊</div>
-            <h3>Flood Monitoring</h3>
+            <div class="icon" aria-hidden="true">🌫️</div>
+            <h3>Air Quality Monitoring System</h3>
           </article>
           <article class="module-card">
-            <div class="icon">🌡️</div>
-            <h3>Heat Risk Prediction</h3>
+            <div class="icon" aria-hidden="true">🌡️</div>
+            <h3>Heat Risk Prediction System</h3>
           </article>
           <article class="module-card">
-            <div class="icon">🌫️</div>
-            <h3>Air Quality Monitoring</h3>
+            <div class="icon" aria-hidden="true">🐠</div>
+            <h3>Coral Reef Monitoring System</h3>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Research Section -->
-    <section id="research" class="section">
+    <!-- Domain: literature, gap, problem, objectives, methodology, tech, modules -->
+    <section id="domain" class="section section-surface">
       <div class="container">
         <div class="section-title fade-in">
-          <h2>Research</h2>
-          <p>Defining the challenge and delivering data-driven environmental intelligence at scale.</p>
+          <h2>Domain</h2>
+          <p>
+            Research foundation, objectives, and technical scope of the EcoGuard AI system aligned with final-year project requirements.
+          </p>
         </div>
 
-        <div class="research-grid">
-          <article class="card fade-in">
-            <h3>Research Problem</h3>
+        <div class="domain-intro card fade-in">
+          <h3>System summary</h3>
+          <p>
+            EcoGuard AI is an integrated AI and IoT-based environmental intelligence system for Sri
+            Lanka. It combines ESP32 edge devices, machine learning pipelines, a PostgreSQL-backed application layer,
+            real-time web dashboards (including WebSocket updates), SMS alerts, and an AI chatbot to support risk
+            detection, early warning, and operational decision-making across four environmental domains.
+          </p>
+        </div>
+
+        <div class="domain-grid domain-grid--2">
+          <article class="card domain-block fade-in" id="domain-literature">
+            <h3 class="domain-block__title">Literature Survey</h3>
             <p>
-              Environmental risks are increasing in frequency and complexity, making them difficult to predict and manage. This is mainly due to fragmented monitoring systems, delayed data reporting, and the lack of real-time insights. As a result, decision-makers and communities often lack timely and actionable information to respond effectively to environmental threats.
+              Prior work spans single-hazard warning systems, satellite and buoy-based marine monitoring, urban air
+              quality networks, and short-range weather forecasting. Recent literature increasingly combines edge IoT,
+              stream processing, and ML for localized risk scoring. However, few deployed systems in the South Asian
+              context unify flood, air quality, heat, and reef health within one architecture with
+              consistent alerting and user-facing analytics.
             </p>
           </article>
-          <article class="card fade-in">
-            <h3>Objectives</h3>
-            <ul>
-              <li>Collect continuous real-time environmental data using IoT sensors and external sources
-              </li>
-              <li>Detect anomalies and predict environmental risks using AI and machine learning models
-              </li>
-              <li>Generate early warnings and alerts for critical situations
-              </li>
-              <li>Provide an intuitive and user-friendly dashboard for effective decision-making
-              </li>
+          <article class="card domain-block fade-in" id="domain-gap">
+            <h3 class="domain-block__title">Research Gap</h3>
+            <p>Existing systems and commercial offerings often lack one or more of the following:</p>
+            <ul class="domain-list">
+              <li>Multi-domain environmental monitoring in a single integrated stack</li>
+              <li>Low-latency, real-time IoT integration with unified data models</li>
+              <li>AI-based prediction, classification, and explainable guidance (e.g., chatbot)</li>
+              <li>SMS and web alerting tied to severity transitions, not only raw thresholds</li>
+              <li>Localization for Sri Lankan environmental and infrastructure context</li>
             </ul>
           </article>
-          <article class="card fade-in">
-            <h3>Methodology</h3>
-            <p>
-              EcoGuard-AI follows a structured pipeline that includes real-time data acquisition, preprocessing, feature engineering, model training, and visualization. The system integrates IoT sensors, backend processing, machine learning models, and a web-based dashboard to deliver accurate insights and timely alerts for environmental risk management.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Solution Section -->
-    <section id="solution" class="section section-alt">
-      <div class="container">
-        <div class="section-title fade-in">
-          <h2>Solution</h2>
-          <p>IoT + AI + Dashboard architecture for proactive environmental management.</p>
         </div>
 
-        <article class="card architecture fade-in">
-          <div class="architecture-layout">
-            <div>
-              <h3>How the System Works</h3>
-              <p>
-                IoT devices capture environmental data in real time. AI services process the incoming
-                streams, identify risk patterns, and forecast events. A unified dashboard then displays
-                alerts, trends, and recommended actions for stakeholders.
-              </p>
-            </div>
-            <img
-              src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=900&q=80"
-              alt="IoT sensors and data network"
-              class="architecture-image"
-            />
-          </div>
+        <article class="card domain-block fade-in" id="domain-problem">
+          <h3 class="domain-block__title">Research Problem</h3>
+          <p>
+            Current environmental monitoring deployments typically emphasize one risk area at a time.
+            Sri Lanka requires a unified system capable of monitoring floods, air quality, heat risk,
+            and coral reef condition together using continuous sensor and image data, ML models, operational dashboards,
+            and multi-channel alerts so that communities and stakeholders receive coherent, timely information.
+          </p>
         </article>
 
+        <article class="card domain-block fade-in" id="domain-objectives">
+          <h3 class="domain-block__title">Research Objectives</h3>
+          <ul class="domain-list domain-list--objectives">
+            <li>Develop an integrated AI and IoT-based environmental monitoring system (EcoGuard AI).</li>
+            <li>Monitor flood risk using ultrasonic and float sensors on ESP32 with severity classification.</li>
+            <li>Monitor air quality using CO, CO<sub>2</sub>, NH<sub>3</sub>, PM2.5, and temperature with health-oriented bands.</li>
+            <li>Predict heat risk using weather data, IoT readings, and LightGBM models.</li>
+            <li>Detect coral bleaching using image classification and complementary water quality parameters.</li>
+            <li>Deliver real-time dashboards, SMS and web notifications, and chatbot-based recommendations.</li>
+          </ul>
+        </article>
+
+        <div class="section-title section-title--nested fade-in">
+          <h3>Methodology and system overview</h3>
+          <p>End-to-end pipeline from sensing to stakeholder communication.</p>
+        </div>
+
+        <article class="card fade-in pipeline-card">
+          <h3 class="domain-block__title">How the system works</h3>
+          <ol class="pipeline-steps">
+            <li>
+              <span class="pipeline-steps__num">1</span>
+              <div>
+                <span class="pipeline-steps__title">Data collection</span>
+                <p>IoT sensors, coral image uploads, external weather APIs, and curated historical datasets.</p>
+              </div>
+            </li>
+            <li>
+              <span class="pipeline-steps__num">2</span>
+              <div>
+                <span class="pipeline-steps__title">Communication</span>
+                <p>ESP32 devices transmit readings over Wi-Fi to the ingestion layer.</p>
+              </div>
+            </li>
+            <li>
+              <span class="pipeline-steps__num">3</span>
+              <div>
+                <span class="pipeline-steps__title">Processing</span>
+                <p>
+                  Coral: ResNet-18 / CNN image classification.
+                  Heat:eshold-based severity classification (six levels).
+                  Air quality: threshold-based pollutant classification (Good / Moderate / Poor).
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="pipeline-steps__num">4</span>
+              <div>
+                <span class="pipeline-steps__title">Storage</span>
+                <p>PostgreSQL for structured telemetry, events, and user-facing aggregates.</p>
+              </div>
+            </li>
+            <li>
+              <span class="pipeline-steps__num">5</span>
+              <div>
+                <span class="pipeline-steps__title">Visualization</span>
+                <p>Web dashboard with real-time updates (including WebSocket channels where applicable).</p>
+              </div>
+            </li>
+            <li>
+              <span class="pipeline-steps__num">6</span>
+              <div>
+                <span class="pipeline-steps__title">Alerts and assistance</span>
+                <p>SMS alerts, in-dashboard notifications, and an AI chatbot for contextual guidance.</p>
+              </div>
+            </li>
+          </ol>
+        </article>
+
+        <div class="section-title section-title--nested fade-in">
+          <h3>Technologies used</h3>
+        </div>
+        <div class="tech-badges fade-in" aria-label="Technologies">
+          <span class="tech-badge">HTML / CSS / JavaScript</span>
+          <span class="tech-badge">ESP32</span>
+          <span class="tech-badge">Node.js / Express</span>
+          <span class="tech-badge">Python / FastAPI</span>
+          <span class="tech-badge">PostgreSQL</span>
+          <span class="tech-badge">WebSocket</span>
+          <span class="tech-badge">LightGBM</span>
+          <span class="tech-badge">ResNet-18 / CNN</span>
+          <span class="tech-badge">IoT sensors</span>
+          <span class="tech-badge">SMS gateway</span>
+          <span class="tech-badge">AI chatbot / LLM</span>
+        </div>
+
+        <div class="section-title section-title--nested fade-in">
+          <h3>Module details</h3>
+          <p>Per-domain sensing, analytics, and delivery mechanisms.</p>
+        </div>
         <div class="modules-grid">
           <article class="card module-detail fade-in">
-            <div class="icon">🐠</div>
-            <h3>Coral Reef Monitoring</h3>
+            <div class="icon" aria-hidden="true">🌊</div>
+            <h3>Flood monitoring and alert system</h3>
             <p>
-              Uses image-based AI models to monitor coral health and detect bleaching conditions.
-              Supports marine conservation by providing insights into reef ecosystem changes.
+              Hardware: ESP32 with ultrasonic sensor and float switch. Severity levels: Normal, Alert, Minor, Moderate,
+              Major, Critical.
+            </p>
+            <p>
+              The dashboard uses WebSocket streams for live water levels, a notification bell for web
+              users, and SMS alerts when severity changes (not on every identical reading), reducing
+              alert fatigue while preserving safety.
             </p>
           </article>
           <article class="card module-detail fade-in">
-            <div class="icon">🌊</div>
-            <h3>Flood Monitoring</h3>
+            <div class="icon" aria-hidden="true">🌫️</div>
+            <h3>Air quality monitoring system</h3>
             <p>
-              Detects rising water levels in real time using IoT sensors to identify potential flood
-              risks. Provides early alerts and severity classification to support timely evacuation
-              and response.
+              Sensors: MQ-7, MQ-135, ENS160, PM2.5 module, and DHT22 for temperature support. Signals: CO,
+              CO<sub>2</sub>, NH<sub>3</sub>, PM2.5, and temperature.
+            </p>
+            <p>
+              Air quality is classified as Good, Moderate, or Poor.
+              The solution supports QR-based dashboard access, SMS alerts for deteriorating bands, live
+              charts, and chatbot guidance for protective actions.
             </p>
           </article>
           <article class="card module-detail fade-in">
-            <div class="icon">🌡️</div>
-            <h3>Heat Risk Prediction</h3>
+            <div class="icon" aria-hidden="true">🌡️</div>
+            <h3>Heat risk prediction system</h3>
             <p>
-              Analyzes temperature and environmental data to predict heat stress conditions using AI
-              models. Supports public safety by issuing early warnings during extreme heat events.
+              Combines weather fields, on-site temperature and humidity from IoT, the Open-Meteo API,
+              scheduled jobs via APScheduler, and LightGBM to forecast temperature,
+              humidity, and solar radiation for 1–15 days.
+            </p>
+            <p>
+              The service computes the Heat Index and maps outcomes to Normal, Caution, Extreme Caution, Danger, and
+              Extreme Danger bands for public-facing messaging.
             </p>
           </article>
           <article class="card module-detail fade-in">
-            <div class="icon">🌫️</div>
-            <h3>Air Quality Monitoring</h3>
+            <div class="icon" aria-hidden="true">🐠</div>
+            <h3>Coral reef monitoring system</h3>
             <p>
-              Continuously tracks air pollutants such as CO, CO2, and PM2.5 to assess environmental
-              conditions. Helps users understand pollution levels and take preventive actions for
-              better health.
+              Accepts coral imagery alongside water quality indicators such as pH, turbidity, and temperature. A
+              ResNet-18 model classifies reefs as Healthy, Partially bleached, or Fully bleached.
+            </p>
+            <p>
+              Outputs can be correlated with river water quality indicators where available; the
+              chatbot summarizes model outputs and contextual risk for non-expert users.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Documents and Presentations Section -->
-    <section id="documents" class="section">
+    <!-- Milestones -->
+    <section id="milestones" class="section section-alt">
       <div class="container">
         <div class="section-title fade-in">
-          <h2>Documents and Presentations</h2>
-          <p>Project outputs organized for easy reference.</p>
+          <h2>Milestones</h2>
+          <p>CDAP-aligned deliverables from proposal through evaluation.</p>
+        </div>
+        <ol class="milestone-timeline fade-in">
+          <li class="milestone-card card">
+            <span class="milestone-card__phase">01</span>
+            <h3>Project proposal</h3>
+            <p>Scope, objectives, and feasibility of the integrated EcoGuard AI architecture.</p>
+          </li>
+          <li class="milestone-card card">
+            <span class="milestone-card__phase">02</span>
+            <h3>Progress presentation I</h3>
+            <p>Initial design, sensor selection, and baseline literature alignment.</p>
+          </li>
+          <li class="milestone-card card">
+            <span class="milestone-card__phase">03</span>
+            <h3>Progress presentation II</h3>
+            <p>Implementation progress, model integration, and dashboard demonstrations.</p>
+          </li>
+          <li class="milestone-card card">
+            <span class="milestone-card__phase">04</span>
+            <h3>Research paper</h3>
+            <p>Formal documentation of methods, experiments, and evaluation metrics.</p>
+          </li>
+          <li class="milestone-card card">
+            <span class="milestone-card__phase">05</span>
+            <h3>Final report</h3>
+            <p>Consolidated group and individual reporting for the complete system.</p>
+          </li>
+          <li class="milestone-card card">
+            <span class="milestone-card__phase">06</span>
+            <h3>Final presentation</h3>
+            <p>Capstone demonstration of integrated modules, alerts, and chatbot assistance.</p>
+          </li>
+          <li class="milestone-card card">
+            <span class="milestone-card__phase">07</span>
+            <h3>Viva</h3>
+            <p>Academic evaluation and Q&amp;A on design decisions, ethics, and deployment considerations.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Documents -->
+    <section id="documents" class="section section-surface">
+      <div class="container">
+        <div class="section-title fade-in">
+          <h2>Documents</h2>
+          <p>
+            Formal deliverables and reference materials for the EcoGuard AI project. All files can be accessed through the links provided.
+          </p>
         </div>
 
-        <div class="docs-grid">
+        <div class="docs-grid docs-grid--docs">
           <article class="card fade-in docs-card">
             <div class="docs-head">
-              <span class="docs-badge">📘</span>
-              <h3>Individual Proposals</h3>
+              <span class="docs-badge" aria-hidden="true">📘</span>
+              <h3>Proposal Documents</h3>
             </div>
-            <p class="docs-note">Individual concept and technical proposals.</p>
-            <div class="doc-links">
+            <p class="docs-note">Individual research proposals and technical designs submitted by each team member.</p>
+            <div class="doc-links doc-links--members">
               <a
                 href="https://drive.google.com/file/d/1tDELpwl2QCHD6i1Qx85W5oWv7rqJIfyn/view?usp=drive_link"
-                class="doc-link-btn"
+                class="doc-link-btn doc-link-btn--member"
                 target="_blank"
                 rel="noopener noreferrer"
                 >Godawela S.M</a>
               <a
                 href="https://drive.google.com/file/d/1uyLZmZgPOFu1_AKwFa_Je0wayCkVG7OU/view?usp=drive_link"
-                class="doc-link-btn"
+                class="doc-link-btn doc-link-btn--member"
                 target="_blank"
                 rel="noopener noreferrer"
                 >Nissanka L.R.S.L</a>
               <a
                 href="https://drive.google.com/file/d/1X-AK5cRnA-C7KHMslbDgRC8DFYITBdH2/view?usp=drive_link"
-                class="doc-link-btn"
+                class="doc-link-btn doc-link-btn--member"
                 target="_blank"
                 rel="noopener noreferrer"
                 >Gimsara W.T.G</a>
               <a
                 href="https://drive.google.com/file/d/1g8eORC39g_IZu8-RjMxiUnnCGoZjFv9R/view?usp=drive_link"
-                class="doc-link-btn"
+                class="doc-link-btn doc-link-btn--member"
                 target="_blank"
                 rel="noopener noreferrer"
                 >Lakshan K.K.C</a>
-              
             </div>
           </article>
 
           <article class="card fade-in docs-card">
             <div class="docs-head">
-              <span class="docs-badge">📄</span>
+              <span class="docs-badge" aria-hidden="true">📄</span>
               <h3>Research Paper</h3>
             </div>
-            <p class="docs-note">Formal research publication.</p>
-            <div class="doc-links">
+            <p class="docs-note">Published IEEE-style research paper describing the proposed system and results.</p>
+            <div class="doc-links doc-links--stack">
               <a
                 href="https://drive.google.com/file/d/1vNLBg4E_IecQQXpA89tvp6fu74_7-aIW/view?usp=drive_link"
-                class="doc-link-btn"
+                class="doc-link-btn doc-link-btn--cta"
                 target="_blank"
                 rel="noopener noreferrer"
-                >View Research Paper</a>
+                >VIEW RESEARCH PAPER</a>
             </div>
           </article>
 
           <article class="card fade-in docs-card">
             <div class="docs-head">
-              <span class="docs-badge">🖥️</span>
-              <h3>Presentations</h3>
+              <span class="docs-badge" aria-hidden="true">📚</span>
+              <h3>Final Group Report (Final Thesis)</h3>
             </div>
-            <p class="docs-note">Progress and milestone presentations.</p>
-            <div class="doc-links">
+            <p class="docs-note">Complete group thesis including system design, implementation, and evaluation.</p>
+            <div class="doc-links doc-links--stack">
               <a
-                href="https://drive.google.com/file/d/1LJWbAqwU6LdDngtJ7SVbogPoKKR-gpzj/view?usp=drive_link"
-                class="doc-link-btn"
+                href="https://drive.google.com/file/d/1Hr_ItxqE9xEL67_6ewFjWP7s8Rr5FRNH/view?usp=sharing"
+                class="doc-link-btn doc-link-btn--cta"
                 target="_blank"
                 rel="noopener noreferrer"
-                >Proposal Presentation</a>
-              <a
-                href="https://drive.google.com/file/d/1LJWbAqwU6LdDngtJ7SVbogPoKKR-gpzj/view?usp=drive_link"
-                class="doc-link-btn"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Progress Presentation I</a>
-              <a
-                href="https://drive.google.com/file/d/1LJWbAqwU6LdDngtJ7SVbogPoKKR-gpzj/view?usp=drive_link"
-                class="doc-link-btn"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Progress Presentation II</a>
+                >VIEW GROUP THESIS</a>
             </div>
           </article>
 
           <article class="card fade-in docs-card">
             <div class="docs-head">
-              <span class="docs-badge">🎓</span>
-              <h3>Thesis</h3>
+              <span class="docs-badge" aria-hidden="true">🎓</span>
+              <h3>Individual Theses</h3>
             </div>
-            <p class="docs-note">Individual and group final thesis submissions.</p>
-            <div class="doc-links">
+            <p class="docs-note">Final individual reports submitted by each team member.</p>
+            <div class="doc-links doc-links--members">
               <a
                 href="https://drive.google.com/file/d/1Z9JnrPBQ3TjM88UUcCeom-CP7t3ZCWzU/view?usp=drive_link"
-                class="doc-link-btn"
+                class="doc-link-btn doc-link-btn--member"
                 target="_blank"
                 rel="noopener noreferrer"
                 >Godawela S.M</a>
-              <a href="#" class="doc-link-btn">Nissanka L.R.S.L</a>
+              <a
+                href="https://drive.google.com/file/d/1TnjBVXh6C1vzKpJDKKfbrgwcUM8_-Gs1/view?usp=drive_link"
+                class="doc-link-btn doc-link-btn--member"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Nissanka L.R.S.L</a>
               <a
                 href="https://drive.google.com/file/d/1gR3OMyII0SiKihC2DTZ0u3OpkLvCF30G/view?usp=drive_link"
-                class="doc-link-btn"
+                class="doc-link-btn doc-link-btn--member"
                 target="_blank"
                 rel="noopener noreferrer"
                 >Gimsara W.T.G</a>
-              <a href="#" class="doc-link-btn">Lakshan K.K.C</a>
-             
-              <a
-                href="https://drive.google.com/file/d/1Hr_ItxqE9xEL67_6ewFjWP7s8Rr5FRNH/view?usp=sharing"
-                class="doc-link-btn"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Group Thesis</a>
+              <span class="doc-link-btn doc-link-btn--member doc-link-btn--static" aria-label="Lakshan K.K.C"
+                >Lakshan K.K.C</span>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- About Us Section -->
-    <section id="about" class="section section-alt">
+    <!-- Presentations -->
+    <section id="presentations" class="section section-alt">
       <div class="container">
         <div class="section-title fade-in">
-          <h2>About Us</h2>
-          <p>A multidisciplinary team dedicated to sustainable innovation.</p>
+          <h2>Presentations</h2>
+          <p>Milestone slides and demonstration decks.</p>
+        </div>
+        <div class="presentations-grid fade-in">
+          <article class="card presentation-card">
+            <h3>Proposal presentation</h3>
+            <a
+              href="https://drive.google.com/file/d/1LJWbAqwU6LdDngtJ7SVbogPoKKR-gpzj/view?usp=drive_link"
+              class="btn btn--small btn--linkish"
+              target="_blank"
+              rel="noopener noreferrer"
+              >View Document</a>
+          </article>
+          <article class="card presentation-card">
+            <h3>Progress presentation I</h3>
+            <a
+              href="https://drive.google.com/file/d/1LJWbAqwU6LdDngtJ7SVbogPoKKR-gpzj/view?usp=drive_link"
+              class="btn btn--small btn--linkish"
+              target="_blank"
+              rel="noopener noreferrer"
+              >View Document</a>
+          </article>
+          <article class="card presentation-card">
+            <h3>Progress presentation II</h3>
+            <a
+              href="https://drive.google.com/file/d/1LJWbAqwU6LdDngtJ7SVbogPoKKR-gpzj/view?usp=drive_link"
+              class="btn btn--small btn--linkish"
+              target="_blank"
+              rel="noopener noreferrer"
+              >View Document</a>
+          </article>
+          <article class="card presentation-card">
+            <h3>Final presentation</h3>
+            <p class="presentation-note">Final deck link will be added here when available.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="section section-surface">
+      <div class="container">
+        <div class="section-title fade-in">
+          <h2>About us</h2>
+          <p>Final-year research team, Faculty of Computing, SLIIT</p>
         </div>
 
         <div class="about-team-carousel fade-in" id="aboutTeamCarousel" aria-label="EcoGuard AI team carousel">
@@ -308,69 +498,53 @@
           <div class="about-carousel-viewport">
             <div class="about-carousel-track" id="aboutCarouselTrack">
               <article class="card team-profile-card">
-                <img
-                  src="assets/Godawela S M.png"
-                  alt="Profile of Godawela S.M"
-                  class="team-photo"
-                />
+                <img src="assets/Godawela S M.png" alt="Portrait photograph of Godawela S.M" class="team-photo" />
                 <h3>Godawela S.M</h3>
-                <p class="role">Final Year IT Undergraduate</p>
-                <span class="module-tag">Flood Module</span>
+                <p class="role">Final-year IT undergraduate</p>
+                <span class="module-tag">Coral reef monitoring module</span>
               </article>
 
               <article class="card team-profile-card">
-                <img
-                  src="assets/Nissanka Lrsl.png"
-                  alt="Profile of Nissanka L.R.S.L"
-                  class="team-photo"
-                />
+                <img src="assets/Nissanka Lrsl.png" alt="Portrait photograph of Nissanka L.R.S.L" class="team-photo" />
                 <h3>Nissanka L.R.S.L</h3>
-                <p class="role">Final Year IT Undergraduate</p>
-               
+                <p class="role">Final-year IT undergraduate</p>
+                <span class="module-tag">Air quality monitoring module</span>
               </article>
 
               <article class="card team-profile-card">
-                <img
-                  src="assets/Gimsara WTG.png"
-                  alt="Profile of Gimsara W.T.G"
-                  class="team-photo"
-                />
+                <img src="assets/Gimsara WTG.png" alt="Portrait photograph of Gimsara W.T.G" class="team-photo" />
                 <h3>Gimsara W.T.G</h3>
-                <p class="role">Final Year IT Undergraduate</p>
-                
+                <p class="role">Final-year IT undergraduate</p>
+                <span class="module-tag">Flood monitoring module</span>
               </article>
 
               <article class="card team-profile-card">
-                <img
-                  src="assets/Lakshan kkc.png"
-                  alt="Profile of Lakshan K.K.C"
-                  class="team-photo"
-                />
+                <img src="assets/Lakshan kkc.png" alt="Portrait photograph of Lakshan K.K.C" class="team-photo" />
                 <h3>Lakshan K.K.C</h3>
-                <p class="role">Final Year IT Undergraduate</p>
-               
+                <p class="role">Final-year IT undergraduate</p>
+                <span class="module-tag">Heat risk prediction module</span>
               </article>
 
               <article class="card team-profile-card">
                 <img
                   src="assets/Prof.Koliya.jpeg"
-                  alt="Profile of Prof. Koliya Pulasinghe"
+                  alt="Portrait photograph of Professor Koliya Pulasinghe"
                   class="team-photo"
                 />
                 <h3>Prof. Koliya Pulasinghe</h3>
-                <p class="role">Research Group Supervisor</p>
-                <span class="module-tag">Research Supervision</span>
+                <p class="role">Research group supervisor</p>
+                <span class="module-tag">Supervisor</span>
               </article>
 
               <article class="card team-profile-card">
                 <img
                   src="assets/Mis Rangi.jpeg"
-                  alt="Profile of Ms. Rangi Liyanage"
+                  alt="Portrait photograph of Ms. Rangi Liyanage"
                   class="team-photo"
                 />
                 <h3>Ms. Rangi Liyanage</h3>
-                <p class="role">Research Group Co-Supervisor</p>
-                <span class="module-tag">Research Co-Supervision</span>
+                <p class="role">Research group co-supervisor</p>
+                <span class="module-tag">Co-supervisor</span>
               </article>
             </div>
           </div>
@@ -381,44 +555,42 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
+    <!-- Contact -->
+    <section id="contact" class="section section-alt">
       <div class="container">
         <div class="section-title fade-in">
-          <h2>Contact Us</h2>
-          <p>We are open to collaboration, feedback, and research partnerships.</p>
+          <h2>Contact us</h2>
+          <p>Collaboration, evaluation feedback, and academic correspondence.</p>
         </div>
 
-        <div class="contact-grid">
-          <article class="card fade-in contact-info">
+        <div class="contact-stack">
+          <article class="card fade-in contact-card">
             <h3>Contact Information</h3>
-            <p><strong>Email:</strong> ecoguard.ai@sliit.edu</p>
-            <p><strong>Phone:</strong> +94 77 123 4567</p>
-            <p><strong>Location:</strong> Sri Lanka Institute of Information Technology
-              New Kandy Road,
-              Malabe</p>
+            <p class="contact-line"><strong>Email:</strong> ecoguard.ai@sliit.edu</p>
+            <p class="contact-line"><strong>Phone:</strong> +94 77 123 4567</p>
+            <p class="contact-line">
+              <strong>Location:</strong> Sri Lanka Institute of Information Technology, New Kandy Road, Malabe,
+              Sri Lanka.
+            </p>
           </article>
 
-          <form class="card fade-in contact-form" id="contactForm" action="#" method="post">
-            <h3>Send a Message</h3>
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" required />
+          <article class="card fade-in contact-card">
+            <form class="contact-form" id="contactForm" action="#" method="post">
+              <h3>Send a Message</h3>
+              <p class="form-demo-note">This form runs in the browser only; submissions are not sent to a server.</p>
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name" />
 
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email" />
 
-            <label for="message">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="5"
-              placeholder="Type your message..."
-              required
-            ></textarea>
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Type your message..." required></textarea>
 
-            <button type="submit" class="btn" id="submitBtn">Submit</button>
-            <p class="form-feedback" id="formFeedback" aria-live="polite"></p>
-          </form>
+              <button type="submit" class="btn" id="submitBtn">Submit</button>
+              <p class="form-feedback" id="formFeedback" aria-live="polite"></p>
+            </form>
+          </article>
         </div>
       </div>
     </section>
@@ -428,12 +600,15 @@
     <div class="container footer-content">
       <div>
         <p class="footer-brand">EcoGuard AI &copy; <span id="year">2026</span></p>
-        <p class="footer-note">Environmental intelligence for resilient communities.</p>
+        <p class="footer-note">Environmental risk and resource management SLIIT</p>
       </div>
       <div class="footer-links">
         <a href="#home">Home</a>
-        <a href="#research">Research</a>
-        <a href="#solution">Solution</a>
+        <a href="#domain">Domain</a>
+        <a href="#milestones">Milestones</a>
+        <a href="#documents">Documents</a>
+        <a href="#presentations">Presentations</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </div>
       <div class="footer-contact">

@@ -1,3 +1,4 @@
+/* Mobile navigation: toggle panel and sync aria-expanded. */
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelector(".nav-links");
 const navLinkItems = document.querySelectorAll(".nav-links a");
@@ -16,6 +17,7 @@ if (navToggle && navLinks) {
   });
 }
 
+/* Reveal sections on scroll (one-shot per element). */
 const fadeElements = document.querySelectorAll(".fade-in");
 
 if ("IntersectionObserver" in window) {
@@ -28,16 +30,18 @@ if ("IntersectionObserver" in window) {
         }
       });
     },
-    { threshold: 0.15 }
+    { threshold: 0.12, rootMargin: "0px 0px -24px 0px" }
   );
 
   fadeElements.forEach((element) => observer.observe(element));
 } else {
-  // Fallback for very old browsers.
   fadeElements.forEach((element) => element.classList.add("is-visible"));
 }
 
-// About Us team carousel: paged slides (3 / 2 / 1 cards), auto every 2s, pause on hover.
+/**
+ * About Us team carousel: responsive pages (3 / 2 / 1 cards), auto-advance,
+ * pause on hover, touch swipe, infinite wrap. Rebuilds pages on resize.
+ */
 (function initAboutTeamCarousel() {
   const root = document.getElementById("aboutTeamCarousel");
   const viewport = root?.querySelector(".about-carousel-viewport");
@@ -189,7 +193,62 @@ if ("IntersectionObserver" in window) {
   startAuto();
 })();
 
-// Contact form UI submit handler (frontend only, no backend).
+/* Sticky nav: highlight link for the section most visible near the top. */
+(function initNavScrollSpy() {
+  const sectionIds = ["home", "domain", "milestones", "documents", "presentations", "about", "contact"];
+  const sections = sectionIds
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
+  const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+  if (sections.length === 0 || navAnchors.length === 0) return;
+
+  const headerEl = document.querySelector(".site-header");
+  const offset = () => (headerEl ? headerEl.getBoundingClientRect().height + 16 : 96);
+
+  function setActiveFromScroll() {
+    const scrollBottom = window.scrollY + window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
+    const nearBottom = scrollBottom >= docHeight - 8;
+
+    let currentId = sectionIds[0];
+    if (nearBottom) {
+      currentId = "contact";
+    } else {
+      const y = window.scrollY + offset();
+      for (const section of sections) {
+        if (section.offsetTop <= y) {
+          currentId = section.id;
+        }
+      }
+    }
+
+    navAnchors.forEach((a) => {
+      const href = a.getAttribute("href");
+      a.classList.toggle("active", href === `#${currentId}`);
+    });
+  }
+
+  let ticking = false;
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setActiveFromScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    },
+    { passive: true }
+  );
+
+  window.addEventListener("load", setActiveFromScroll);
+  window.addEventListener("resize", setActiveFromScroll);
+  setActiveFromScroll();
+})();
+
+/* Contact form: client-side validation and demo-only success copy (no backend). */
 const contactForm = document.getElementById("contactForm");
 const submitBtn = document.getElementById("submitBtn");
 const formFeedback = document.getElementById("formFeedback");
@@ -208,11 +267,11 @@ if (contactForm && submitBtn && formFeedback) {
 
     const originalText = submitBtn.textContent;
     submitBtn.disabled = true;
-    submitBtn.textContent = "Submitting...";
+    submitBtn.textContent = "Submitting…";
 
-    // Simulate submission request in a static website.
     window.setTimeout(() => {
-      formFeedback.textContent = "Message submitted successfully. Thank you!";
+      formFeedback.textContent =
+        "Thank you. Your message has been recorded for demonstration purposes.";
       formFeedback.classList.add("success");
       formFeedback.classList.remove("error");
 
@@ -222,4 +281,3 @@ if (contactForm && submitBtn && formFeedback) {
     }, 700);
   });
 }
-
